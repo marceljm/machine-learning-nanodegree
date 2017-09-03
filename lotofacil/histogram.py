@@ -1,8 +1,15 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import sys
 
-columns = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-data = pd.read_csv('data/lotofacil.csv', names=columns)
+columns = (i for i in range(1,16))
+data = pd.read_csv('data/data.csv', names=columns)
+
+#show 15 figures
 data.hist()
+
+#show 1 figure (1-15)
+#parameter = int(sys.argv[1])
+#plt.hist(data[parameter])
 
 plt.show()
