@@ -17,7 +17,7 @@ MAX_WINDOW = 20
 #ignore last N results // 1 ou 2
 ignore = 0 
 
-MAX_TEST = 1500 
+MAX_TEST = 15 
 
 for n in range (0, MAX_TEST):
 	for row in range (MIN_WINDOW, MAX_WINDOW):
