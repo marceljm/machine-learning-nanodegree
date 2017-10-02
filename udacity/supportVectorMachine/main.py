@@ -1,31 +1,31 @@
-#!/usr/bin/python
-
 import sys
 from class_vis import prettyPicture
 from prep_terrain_data import makeTerrainData
 
 import matplotlib.pyplot as plt
+import copy
 import numpy as np
 import pylab as pl
-from classifyDT import classify
 
-# Decision Tree
+# SVM
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
-clf = classify(features_train, labels_train)
+from sklearn.svm import SVC
+clf = SVC(kernel="linear")
+clf.fit(features_train, labels_train)
 
 prettyPicture(clf, features_test, labels_test)
 
-# Decision Tree Accurracy
+# SVM Accuracy
 
-def submitAccuracies():
-  return {"acc":round(acc,3)}
+def submitAccuracy():
+    return acc
 
 from sklearn.metrics import accuracy_score
 
-labels_pred = clf.predict(features_test)
+pred = clf.predict(features_test)
 
-acc = accuracy_score(labels_pred, labels_test)
+acc = accuracy_score(pred, labels_test)
 
-print submitAccuracies()
+print submitAccuracy()
